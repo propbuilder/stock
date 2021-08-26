@@ -1,6 +1,6 @@
 .parent-container {
     width: 80vw;
-    height: 80vh;
+    height: 100vh;
     background-color: aliceblue;
     margin: 0 auto;
 }
@@ -53,4 +53,28 @@
     font-weight: 100;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
+}
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5% 2%;
+}
+
+.search-result > .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: x-large;
+    margin: 0.3em;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.search-result > .detail > .detail-content {
+    margin-left: 2%;
+    margin-top: 0.2em;
+    font-family: fantasy;
+    font-size: large;
 }

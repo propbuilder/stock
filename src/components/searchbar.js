@@ -21,6 +21,7 @@ const SearchBar = ({
            <div className="icon">
             <SearchIcon 
                 onClick={handleSearch}
+                style={{cursor: "pointer"}}
             />
            </div>
         </div>

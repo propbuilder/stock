@@ -5,7 +5,10 @@ import SearchBar from './searchbar';
 
 const SearchWithSuggestions = ({
     optimizedFetch,
-    matchingStocks
+    matchingStocks,
+    fetchStockData,
+    setMatchingStocks,
+    setStockDetails
 }) => {
     // state to hold value which user enters
     const [inputValue, setInputValue] = useState('');
@@ -19,17 +22,25 @@ const SearchWithSuggestions = ({
     // Fires when user selects one of the suggestions.
     const handleSelection = (event, selectedValue) => {
         console.log('selected->', selectedValue);
-        setValue(selectedValue);
+        setMatchingStocks(null);
+        if (selectedValue) {
+            fetchStockData(selectedValue);
+        }
     };
 
     // Fires when user doesn't select any suggested option but 
     // go ahead and searches manually by clicking on search button.
     const handleManualSearch = () => {
         console.log('search with-> ', inputValue);
+        setMatchingStocks(null);
+        if (inputValue) {
+            fetchStockData(inputValue);
+        }
     };
 
     // takes care of input change as user types in.
     const handleInputChange = (event, newValue) => {
+        setStockDetails('');
         setInputValue(newValue);
         if (newValue) {
             optimizedFetch(newValue);
@@ -80,7 +91,8 @@ const SearchWithSuggestions = ({
 
 SearchWithSuggestions.propTypes = {
     optimizedFetch: PropTypes.func.isRequired,
-    matchingStocks: PropTypes.arrayOf(PropTypes.shape).isRequired
+    matchingStocks: PropTypes.arrayOf(PropTypes.shape).isRequired,
+    fetchStockData: PropTypes.func.isRequired
 };
 
 export default SearchWithSuggestions;
