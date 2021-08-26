@@ -8,7 +8,8 @@ const SearchWithSuggestions = ({
     matchingStocks,
     fetchStockData,
     setMatchingStocks,
-    setStockDetails
+    setStockDetails,
+    setNotFound
 }) => {
     // state to hold value which user enters
     const [inputValue, setInputValue] = useState('');
@@ -18,7 +19,7 @@ const SearchWithSuggestions = ({
 
     // Fires when user selects one of the suggestions.
     const handleSelection = (event, selectedValue) => {
-        event.preventDefault();
+        setNotFound(false);
         console.log('selection', selectedValue);
         setOpenSuggestion(false);
         if (selectedValue) {
@@ -37,6 +38,7 @@ const SearchWithSuggestions = ({
 
     // takes care of input change as user types in.
     const handleInputChange = (event, newValue) => {
+        setNotFound(false);
         console.log('inputchange', newValue);
         setStockDetails('');
         setInputValue(newValue);
@@ -71,8 +73,6 @@ const SearchWithSuggestions = ({
     return (
         <Autocomplete
         freeSolo
-        autoComplete
-        // blurOnSelect
         open={openSuggestion}
         inputValue={inputValue}
         onInputChange={handleInputChange}

@@ -78,3 +78,10 @@
     font-family: fantasy;
     font-size: large;
 }
+
+.not-found {
+    margin-top: 20%;
+    font-size: 44px;
+    font-family: monospace;
+    font-weight: 300;
+}

@@ -17,6 +17,9 @@ const Container = () => {
     // state to hold stock details.
     const [stockDetails, setStockDetails] = useState('');
 
+    // state to hold info if we need to show not found
+    const [notFound, setNotFound] = useState(false);
+
     /**
      * Below method will call the api to get search items.
      * @param {*} searchSymbol - input search string
@@ -35,7 +38,14 @@ const Container = () => {
     const fetchStockData = (selectedSymbol) => {
         fetch(`${OVERVIEW_ENDPOINT}function=OVERVIEW&symbol=${selectedSymbol}&apikey=${API_KEY}`)
             .then((response) => response.json()
-                .then(data => setStockDetails(data))
+                .then(data => {
+                    if (data && Object.keys(data).length > 0) {
+                        setStockDetails(data);
+                        setNotFound(false);
+                    } else {
+                        setNotFound(true);
+                    }
+                })
             )
             .catch(err => console.log('something went wrong getting overview', err));
     };
@@ -71,11 +81,15 @@ const Container = () => {
                 setMatchingStocks={setMatchingStocks}
                 fetchStockData={fetchStockData}
                 setStockDetails={setStockDetails}
+                setNotFound={setNotFound}
            />
-           {stockDetails && 
+           {stockDetails && (Object.keys(stockDetails).length > 0) &&
             <SearchResult 
                 stockDetails={stockDetails}
             />
+           }
+           {
+               notFound && <div className="not-found">Not Found</div>
            }
         </div>
     );
