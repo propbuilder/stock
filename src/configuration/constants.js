@@ -4,6 +4,8 @@ export const searchBarConfiguration = {
     outline: "none"
 };
 
+export const SEARCH_ENDPOINT = `https://www.alphavantage.co/query?`
+
 export const top100Films = [
     { title: 'The Shawshank Redemption', year: 1994 },
     { title: 'The Godfather', year: 1972 },
