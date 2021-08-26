@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { SEARCH_ENDPOINT } from '../configuration/constants';
+import PropTypes from 'prop-types';
 import SearchBar from './searchbar';
 
-const SearchWithSuggestions = () => {
+const SearchWithSuggestions = ({
+    optimizedFetch,
+    matchingStocks
+}) => {
     // state to hold value which user enters
     const [inputValue, setInputValue] = useState('');
-
-    // state to hold the available matching stocks
-    const [matchingStocks, setMatchingStocks] = useState([]);
 
     // state to hold value which user selects
     const [value, setValue] = useState('');
@@ -16,41 +16,19 @@ const SearchWithSuggestions = () => {
     // state to control the suggestions panel
     const [openSuggestion, setOpenSuggestion] = useState(false);
 
+    // Fires when user selects one of the suggestions.
     const handleSelection = (event, selectedValue) => {
         console.log('selected->', selectedValue);
         setValue(selectedValue);
     };
 
+    // Fires when user doesn't select any suggested option but 
+    // go ahead and searches manually by clicking on search button.
     const handleManualSearch = () => {
         console.log('search with-> ', inputValue);
     };
 
-    const fetchSearchData = (searchSymbol) => {
-        console.log('fetching data', searchSymbol);
-        fetch(`${SEARCH_ENDPOINT}function=SYMBOL_SEARCH&keywords=${searchSymbol}&apikey=QSYIQ6FJDFZUSUFX`)
-            .then((response) => response.json()
-                .then((data) => {
-                    setMatchingStocks(null)
-                    setMatchingStocks(data.bestMatches)
-                }))
-            .catch((err) => console.log('something went wrong', err));
-    };
-
-    // below is a optimizer function which reduces the number of times api is called.
-    const optimizeFetch = (method, delay) => {
-        let timer;
-        return (args) => {
-            if (timer) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(() => {
-                method(args);
-            }, delay);
-        }
-    };
-
-    const optimizedFetch = optimizeFetch(fetchSearchData, 5000);
-
+    // takes care of input change as user types in.
     const handleInputChange = (event, newValue) => {
         setInputValue(newValue);
         if (newValue) {
@@ -58,6 +36,7 @@ const SearchWithSuggestions = () => {
         }
     };
 
+    // Show the suggestions once we have the data
     useEffect(() => {
         if (inputValue && matchingStocks && matchingStocks.length > 0) {
             setOpenSuggestion(true);
@@ -66,6 +45,7 @@ const SearchWithSuggestions = () => {
         }
     }, [matchingStocks, inputValue]);
 
+    // Format the response data for suggestion panel.
     const getMatchingStocks = () => {
         if (matchingStocks && matchingStocks.length > 0) {
             return matchingStocks.map((option) => {
@@ -79,6 +59,7 @@ const SearchWithSuggestions = () => {
         <Autocomplete
         freeSolo
         autoComplete
+        blurOnSelect
         open={openSuggestion}
         inputValue={inputValue}
         onInputChange={handleInputChange}
@@ -95,6 +76,11 @@ const SearchWithSuggestions = () => {
         )}
       />
     );
+};
+
+SearchWithSuggestions.propTypes = {
+    optimizedFetch: PropTypes.func.isRequired,
+    matchingStocks: PropTypes.arrayOf(PropTypes.shape).isRequired
 };
 
 export default SearchWithSuggestions;
