@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component test 1. Header component should render correctly 1`] = `
+<div>
+  <div
+    class="header"
+  >
+    <h3
+      class="widget-header"
+    >
+      Stock Widget
+    </h3>
+  </div>
+</div>
+`;

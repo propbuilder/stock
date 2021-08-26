@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search result test 1. search result component should render properly 1`] = `
+<div>
+  <div
+    class="search-result"
+    data-testid="searchResult"
+  >
+    <div
+      class="detail"
+    >
+      1. Name and Symbol of the company
+      <div
+        class="detail-content"
+      >
+        International Business Machines
+         
+        IBM
+      </div>
+    </div>
+    <div
+      class="detail"
+    >
+      2. Description
+      <div
+        class="detail-content"
+      >
+        Product org.
+      </div>
+    </div>
+    <div
+      class="detail"
+    >
+      3. Current Price
+      <div
+        class="detail-content"
+      >
+        2.23
+      </div>
+    </div>
+    <div
+      class="detail"
+    >
+      4. Change its traded on
+      <div
+        class="detail-content"
+      >
+        11.1
+      </div>
+    </div>
+    <div
+      class="detail"
+    >
+      5. Industry
+      <div
+        class="detail-content"
+      >
+        Computers
+      </div>
+    </div>
+    <div
+      class="detail"
+    >
+      6. PE Ratio
+      <div
+        class="detail-content"
+      >
+        12.2
+      </div>
+    </div>
+    <div
+      class="detail"
+    >
+      7. Market Cap
+      <div
+        class="detail-content"
+      >
+        123345
+      </div>
+    </div>
+  </div>
+</div>
+`;

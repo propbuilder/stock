@@ -2,7 +2,7 @@ const SearchResult = ({
     stockDetails
 }) => {
     return (
-        <div className="search-result">
+        <div className="search-result" data-testid="searchResult">
             <div className="detail">
                 1. Name and Symbol of the company
                 <div className="detail-content">{stockDetails.Name} {stockDetails.Symbol}</div>

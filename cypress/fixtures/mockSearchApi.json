@@ -1,0 +1,112 @@
+{"bestMatches": [
+    {
+        "1. symbol": "TESC.FRK",
+        "2. name": "TESC",
+        "3. type": "Equity",
+        "4. region": "Frankfurt",
+        "5. marketOpen": "08:00",
+        "6. marketClose": "20:00",
+        "7. timezone": "UTC+02",
+        "8. currency": "EUR",
+        "9. matchScore": "0.8571"
+    },
+    {
+        "1. symbol": "TESD.FRK",
+        "2. name": "TESD",
+        "3. type": "Equity",
+        "4. region": "Frankfurt",
+        "5. marketOpen": "08:00",
+        "6. marketClose": "20:00",
+        "7. timezone": "UTC+02",
+        "8. currency": "EUR",
+        "9. matchScore": "0.8571"
+    },
+    {
+        "1. symbol": "TES.TRV",
+        "2. name": "Tesoro Minerals Corp",
+        "3. type": "Equity",
+        "4. region": "Toronto Venture",
+        "5. marketOpen": "09:30",
+        "6. marketClose": "16:00",
+        "7. timezone": "UTC-05",
+        "8. currency": "CAD",
+        "9. matchScore": "0.7500"
+    },
+    {
+        "1. symbol": "TESGX",
+        "2. name": "TEMPLETON GLOBAL SMALLER COMPANIES FUND CLASS C",
+        "3. type": "Mutual Fund",
+        "4. region": "United States",
+        "5. marketOpen": "09:30",
+        "6. marketClose": "16:00",
+        "7. timezone": "UTC-04",
+        "8. currency": "USD",
+        "9. matchScore": "0.7500"
+    },
+    {
+        "1. symbol": "TESHX",
+        "2. name": "TIAACREF SHORTTERM BOND INDEX FUND RETIREMENT CLASS",
+        "3. type": "Mutual Fund",
+        "4. region": "United States",
+        "5. marketOpen": "09:30",
+        "6. marketClose": "16:00",
+        "7. timezone": "UTC-04",
+        "8. currency": "USD",
+        "9. matchScore": "0.7500"
+    },
+    {
+        "1. symbol": "TESIX",
+        "2. name": "FRANKLIN MUTUAL SHARES FUND CLASS A",
+        "3. type": "Mutual Fund",
+        "4. region": "United States",
+        "5. marketOpen": "09:30",
+        "6. marketClose": "16:00",
+        "7. timezone": "UTC-04",
+        "8. currency": "USD",
+        "9. matchScore": "0.7500"
+    },
+    {
+        "1. symbol": "TES.PAR",
+        "2. name": "Tessi SA",
+        "3. type": "Equity",
+        "4. region": "Paris",
+        "5. marketOpen": "09:00",
+        "6. marketClose": "17:30",
+        "7. timezone": "UTC+02",
+        "8. currency": "EUR",
+        "9. matchScore": "0.6667"
+    },
+    {
+        "1. symbol": "TESE.FRK",
+        "2. name": "Franklin Templeton Investment Funds SICAV - Templeton Global Climate Change Fund",
+        "3. type": "Equity",
+        "4. region": "Frankfurt",
+        "5. marketOpen": "08:00",
+        "6. marketClose": "20:00",
+        "7. timezone": "UTC+02",
+        "8. currency": "EUR",
+        "9. matchScore": "0.6667"
+    },
+    {
+        "1. symbol": "TESB.BRU",
+        "2. name": "Tessenderlo Group NV",
+        "3. type": "Equity",
+        "4. region": "Brussels",
+        "5. marketOpen": "09:00",
+        "6. marketClose": "17:00",
+        "7. timezone": "UTC+02",
+        "8. currency": "EUR",
+        "9. matchScore": "0.6000"
+    },
+    {
+        "1. symbol": "TESA3.SAO",
+        "2. name": "Terra Santa Agro S.A",
+        "3. type": "Equity",
+        "4. region": "Brazil/Sao Paolo",
+        "5. marketOpen": "10:00",
+        "6. marketClose": "17:30",
+        "7. timezone": "UTC-03",
+        "8. currency": "BRL",
+        "9. matchScore": "0.5455"
+    }
+]}

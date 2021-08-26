@@ -17,9 +17,11 @@ const SearchBar = ({
              className={searchBarConfiguration.class}
              fullWidth
              autoFocus
+             data-testid="searchBar"
            />
            <div className="icon">
-            <SearchIcon 
+            <SearchIcon
+                data-testid="searchIcon"
                 onClick={handleSearch}
                 style={{cursor: "pointer"}}
             />
