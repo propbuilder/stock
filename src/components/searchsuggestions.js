@@ -13,16 +13,14 @@ const SearchWithSuggestions = ({
     // state to hold value which user enters
     const [inputValue, setInputValue] = useState('');
 
-    // state to hold value which user selects
-    const [value, setValue] = useState('');
-
     // state to control the suggestions panel
     const [openSuggestion, setOpenSuggestion] = useState(false);
 
     // Fires when user selects one of the suggestions.
     const handleSelection = (event, selectedValue) => {
-        console.log('selected->', selectedValue);
-        setMatchingStocks(null);
+        event.preventDefault();
+        console.log('selection', selectedValue);
+        setOpenSuggestion(false);
         if (selectedValue) {
             fetchStockData(selectedValue);
         }
@@ -31,7 +29,6 @@ const SearchWithSuggestions = ({
     // Fires when user doesn't select any suggested option but 
     // go ahead and searches manually by clicking on search button.
     const handleManualSearch = () => {
-        console.log('search with-> ', inputValue);
         setMatchingStocks(null);
         if (inputValue) {
             fetchStockData(inputValue);
@@ -40,10 +37,15 @@ const SearchWithSuggestions = ({
 
     // takes care of input change as user types in.
     const handleInputChange = (event, newValue) => {
+        console.log('inputchange', newValue);
         setStockDetails('');
         setInputValue(newValue);
-        if (newValue) {
+        if (newValue && !matchingStocks) {
             optimizedFetch(newValue);
+        } else {
+            setStockDetails('');
+            setMatchingStocks(null);
+            setOpenSuggestion(false);
         }
     };
 
@@ -70,7 +72,7 @@ const SearchWithSuggestions = ({
         <Autocomplete
         freeSolo
         autoComplete
-        blurOnSelect
+        // blurOnSelect
         open={openSuggestion}
         inputValue={inputValue}
         onInputChange={handleInputChange}
