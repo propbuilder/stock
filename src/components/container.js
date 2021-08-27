@@ -1,4 +1,9 @@
 import React, {useState} from 'react';
+import {
+    Switch,
+    Route,
+    useRouteMatch
+  } from "react-router-dom";
 import './styles.css';
 import Header from './Header';
 import SearchWithSuggestions from './searchsuggestions';
@@ -70,7 +75,7 @@ const Container = () => {
     };
 
     const optimizedFetch = optimizeFetch(fetchSearchData, optimizationDelay);
-
+    let match = useRouteMatch();
 
     return (
         <div className="parent-container">
@@ -83,14 +88,18 @@ const Container = () => {
                 setStockDetails={setStockDetails}
                 setNotFound={setNotFound}
            />
-           {stockDetails && (Object.keys(stockDetails).length > 0) &&
-            <SearchResult 
-                stockDetails={stockDetails}
-            />
-           }
-           {
-               notFound && <div className="not-found">Not Found</div>
-           }
+           <Switch>
+               <Route path={`${match.path}/:symbol`}>
+                    {stockDetails && (Object.keys(stockDetails).length > 0) &&
+                        <SearchResult 
+                            stockDetails={stockDetails}
+                        />
+                    }
+                    {
+                        notFound && <div className="not-found">Not Found</div>
+                    }
+               </Route>
+           </Switch>
         </div>
     );
 };
