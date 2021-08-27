@@ -35,6 +35,10 @@ const Container = () => {
             .catch((err) => console.log('something went wrong', err));
     };
 
+    /**
+     * Below method calls api to get the stock details
+     * @param {*} selectedSymbol - selected stock symbol
+     */
     const fetchStockData = (selectedSymbol) => {
         fetch(`${OVERVIEW_ENDPOINT}function=OVERVIEW&symbol=${selectedSymbol}&apikey=${API_KEY}`)
             .then((response) => response.json()
